@@ -22,7 +22,9 @@ fun TeamArea(
     label: String,
     score: Int,
     onPlusOne: () -> Unit,
-    onPlusThree: () -> Unit
+    onPlusThree: () -> Unit,
+    isGameOver: Boolean = false,
+    showPlusThree: Boolean = true
 ) {
     Column(
         modifier = modifier
@@ -36,7 +38,9 @@ fun TeamArea(
         ScoreButtons(
             buttonColor = buttonColor,
             onPlusOne = onPlusOne,
-            onPlusThree = onPlusThree
+            onPlusThree = onPlusThree,
+            enabled = !isGameOver,
+            showPlusThree = showPlusThree
         )
     }
 }
@@ -53,6 +57,6 @@ private fun TeamAreaPreview() {
         label = "Team A",
         score = 5,
         onPlusOne = {},
-        onPlusThree = {}
+        onPlusThree = {},
     )
 }
